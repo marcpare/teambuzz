@@ -1,0 +1,23 @@
+{% extends "adminbase.html" %}
+
+{% block content %}
+	<h1>Here are some basic stats</h1>
+	<h2>Total Users: {{ usercount }}</h2>
+	<h2>PCs:</h2>
+	<p>Total PC Applications: <strong>{{ pccount }}</strong><br />
+	Total Approved PCs: <strong>{{ approvedpcs }}</strong><br />
+	Total Pending PCs: <strong>{{ rejectedpcs }}</strong></p>
+	<h2>Groups:</h2>
+	<p>Total Groups: <strong>{{ groupcount }}</strong><br />
+	Group Slots: <strong>{{ slotstaken }}</strong><br />
+	Slots Occupied: <strong>{{ spotstaken }}</strong><br />
+	Slots Left: <strong>{{ spotsleft }}</strong><br /></p>
+	<h2>Projects:</h2>
+	<p>Total Projects: <strong>{{ projcount }}</strong><br />
+	Spots Provided: <strong>{{ totspots }}</strong><br />
+	Spots Reserved by Groups: <strong>{{ slotstaken }}</strong><br />
+	Spots Unreserved by Groups: <strong>{{ projspotsunreserved }}</strong><br />
+	Spots Actually Taken: <strong>{{ projspotstaken }}</strong><br />
+	Spots Actually Left: <strong>{{ projspotsleft }}</strong><br /></p>
+	
+{% endblock %}

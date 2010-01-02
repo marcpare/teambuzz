@@ -1,0 +1,40 @@
+{% extends "adminbase.html" %}
+
+{% block content %}
+	<h1>View Greek Organization:</h1>
+	
+	<form action="usersbygreek" method="post" id="greekselform">
+		<select name="greeksel" id="greeksel" class="selectOne">
+			<option value="none">Choose a Project</option>
+			{% for g in greeks %}
+				<option value="{{ g.name }}">{{ g.name }}</option>
+			{% endfor %}
+		</select>
+		<div class="submit">
+			<input type="submit" class="submit" value="View Greek &raquo;" />
+		</div>
+	</form>
+	<hr />
+	{% if greek %}
+		<br />
+		<h2>{{ greek.name }}</h2>
+		<h2>Volunteers</h2>
+		<table>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Phone No.</th>
+			</tr>
+			{% for user in users %}
+				<tr>
+					<td>{{ user.first_name }}</td>
+					<td>{{ user.last_name }}</td>
+					<td>{{ user.email }}</td>
+					<td>{{ user.phone }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+		<h3>{{ count }} Volunteers for this Greek Organization</h3>
+	{% endif %}
+{% endblock %}

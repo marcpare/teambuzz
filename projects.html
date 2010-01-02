@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}TEAM Buzz Projects{% endblock %}
+
+{% block content %}
+	<h1>Get your hands dirty</h1>
+	<ul id="projects">
+		
+		{% for project in projects %}
+		<li>
+			<table>
+			<tr><th>Name</th><td>{{ project.name }}</td></tr>
+			<tr><th>Type of Work</th><td>{{ project.type_of_work }}</td></tr>
+			{% if project.location %}<tr><th>Location</th><td>{{ project.location }}</td></tr>{% endif %}
+			<tr><th>Volunteers</th><td>({{ project.spots_taken }}/{{ project.max_volunteers }})</td></tr>
+			<tr><th>Description</th><td>{{ project.description }}</td></tr>
+			</table>
+			{% if can_join %}
+			{% if project.available %}<a class="signup" href="join?project={{ project.key }}">Sign me up!</a>{% endif %}
+			{% endif %}
+			<br />
+			<br />
+		</li>
+		{% endfor %}
+	</ul>
+	
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "adminbase.html" %}
+
+{% block content %}
+	<p>You are at the admin home.</p>
+	{% if is_new %}
+	<p>It looks like this is a fresh installation of the web app. You need to <a href="/admin/init">initialize a few things</a></p>
+	{% endif %}
+	
+	<p>Emails will be sent from <span class="highlight">{{ email_from }}</span>. If this isn't correct you need to change it in the teambuzz.py file</p>
+	
+	<p>The application thinks that live at <span class="highlight">{{ root_url }}</span>. If this isn't right you need to change it in the teambuzz.py file</p>
+	
+	<p>The phases for this year's TEAM Buzz are as follows.</p>
+	<table>
+		<tr>
+			<th>Phase</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+		</tr>
+	{% for phase in phases %}
+		<tr>
+			<td>{{ phase.description}}</td>
+			<td>{{ phase.start_date}}</td>
+			<td>{{ phase.end_date}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+	
+{% endblock %}

@@ -1,0 +1,45 @@
+<html>
+<head>
+	<style type="text/css">
+		body { background: black; }
+		#content { background: white; margin-left: 220px; padding: 5px;}
+		#sidebar { float: left; width: 200px; background: white; padding: 5px;}
+		#sidebar ul { list-style: none; padding: 0;}
+		#sidebar ul li { list-style: none; margin: 0; margin-bottom: 10px; padding: 3px;}
+		#sidebar ul li:hover { background: #2971e0;}
+		p.spiderman { font-style: italic;}
+		
+		table { border: 1px solid black; border-collapse: collapse;}
+		td, th { padding: 3px;}
+		#response { white-space: pre-line; }
+		td { border: 1px dotted black; }
+		th { text-align: left;}
+		span.highlight { background-color: #eee; padding: 3px; border:1px solid #777;}
+	</style>
+	<style type="text/css" media="print">
+		#sidebar, form, hr, h1 {display: none;}
+		#content {width: 100%; margin: 0px; float: none;}
+	</style>
+</head>
+<body>
+	<div id="sidebar">
+		<h3>Tools</h3>
+		<p class="spiderman">Use them wisely</p>
+		<ul>
+			<li><a href="/admin">Home</a></li>		
+			<li><a href="/admin/users">Activate Users</a></li>		
+			<li><a href="/admin/apps">Accept/Reject PC Applications</a></li>
+			<li><a href="/admin/addprojects">Add a Project</a></li>
+			<li><a href="/admin/contact">Email Lists</a></li>
+			<li><a href="/admin/stats">Statistics</a></li>
+			<li><a href="/admin/usersbygroup">View Users by Project</a></li>
+			<li><a href="/admin/usersbygreek">View Users by Greek</a></li>
+			<li><a href="/admin/pcprojects">Assign Projects to PCs</a></li>
+			<li><a href="/admin/config">Scary Configuration Stuff</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		{% block content %}{% endblock %}
+	</div>
+</body>
+</html>

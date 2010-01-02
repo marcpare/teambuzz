@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>My TEAM Buzz</h1>
+
+{% if is_pc %}
+	<p>You are a PC!</p>
+	{% if project %}
+		<p>Your project is <em>{{ project.name }}.</em></p>
+		<h2>Project details</h2>
+		<dl>
+			<dt>Spots allowed:</dt><dd>{{ project.max_volunteers}}</dd>
+			<dt>Spots taken:</dt><dd>{{ project.spots_taken }}</dd>
+			<dt>Spots remaining:</dt><dd>{{ project.spots_remaining }}</dd>
+		</dl>
+		<h2>Volunteers in your project</h2>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+			</tr>
+			{% for v in volunteers%}
+			<tr>
+				<td>{{ v.first_name}} {{v.last_name}}</td>
+				<td>{{ v.email }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	{% else %}
+		<p>You have not been assigned a project yet.</p>
+	{% endif %}
+{% else %}
+	{% if has_app %}
+		<p>You currently have a pending PC Application.</p>
+	{% else %}
+		{% for phase in phases %}
+			{% ifequal phase "pc_apps" %}
+			<div class="ribbon">
+				<p>PC Applications are up! You should <a href="beapc">apply here.</a></p>
+			</div>		
+			{% endifequal %}
+		{% endfor %}
+
+	{% endif %}
+	
+	{% if project %}
+		<h2>Your project is <em>{{ project.name }}.</em></h2>
+		<div class="box">
+			<table>
+				<tr><th>Volunteers</th><td>({{ project.spots_taken }}/{{ project.max_volunteers }})</td></tr>
+				{% if project.location %}<tr><th>Location</th><td>{{ project.location }}</td></tr>{% endif %}
+				<tr><th>Type of Work</td><td>{{ project.type_of_work }}</td></tr>
+			</table>
+		</div>
+	{% else %}
+		<h2>Oh dear! You don't have a project</h2>
+		<p>If you registered for one earlier, you might have waited too long to confirm your account, and all of the spots got taken. Pick another one to join <a href="/projects">here</a></p>
+	{% endif %}
+	
+{% endif %}
+
+{% if group %}
+	<h2>You are part of the group {{ group.name }}</h2>
+	<div class="box">
+		<p>People who have joined this group</p>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+			</tr>
+			{% for mem in group_members %}
+			<tr>
+				<td>{{ mem.first_name}} {{mem.last_name}}</td>
+				<td>{{ mem.email }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+		<p class="quiet">There are {{ group.spots_remaining }} spots remaining</p>
+	</div>
+{% endif %}
+
+{% endblock %}

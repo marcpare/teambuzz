@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Login to TEAM Buzz</h1>
+
+{% if message %}
+	<p>{{ message }}</p>
+{% endif %}
+
+<form action="/login" method="post">
+	<div><p>Email Address</p><input type="text" name="username"></input></div>
+	<div><p>Password</p><input type="password" name="password"></input></div>
+	<div><input type="submit" value="Login"></div>
+	<input type="hidden" name="from" value="{{ from }}"></input>
+</form>
+{% endblock %}

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<link type="text/css" rel="stylesheet" href="stylesheets/reset-min.css" />
+	<link type="text/css" rel="stylesheet" href="stylesheets/main.css" />
+	<link type="text/css" rel="stylesheet" href="/stylesheets/form.css" />
+	<link rel="icon" type="image/jpg" href="/images/logo.jpg" />
+    <title>{% block title %}TEAM Buzz - 10.10.09{% endblock %}</title>
+	<script type="text/javascript" src="/scripts/jquery-1.3.2.min.js"></script>   
+	<script type="text/javascript" src="/scripts/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="/scripts/jquery.maskedinput-1.0.js"></script>
+	{% block validation %}{% endblock %}   
+</head>
+
+<body>
+	<div id="sidebar">
+		<img id="logo" src="images/logo.jpg" width="379" height="385" alt="logo" />
+		<ul id="nav">
+			<li id="homecurrent"><a href="/">Home</a></li>
+			<li id="info"><a href="/info">Info</a></li>
+			<li id="projects"><a href="/projects">Projects</a></li>
+			<li id="contact"><a href="/contact">Contact</a></li>
+			<li id="sponsors"><a href="/sponsors">Sponsors</a></li>
+		</ul>
+	</div>
+	<div id="main">
+		<div id="content">
+			<div id="top">
+				<div id="breadcrumb"><!-- TODO --></div>
+				<div id="login">
+					<p>
+					{% if user %}
+						Welcome {{ user}} | <a href="me">My TEAMBuzz</a> | <a href="logout">Logout</a>
+					{% else %}
+						Already have an account? <a href="/login" id="login-link">Login here.</a>
+					{% endif %}
+					</p>
+				</div>
+					
+			</div>
+			{% block content %}{% endblock %}
+		</div>
+				
+		<div id="footer">
+		<p>Is something broken? Contact the <a href="mailto:mhodgson@gatech.edu">webmaster</a></p>
+		</div>
+	</div>
+</body>
+</html>

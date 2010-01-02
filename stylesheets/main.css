@@ -1,0 +1,57 @@
+html {background: black;}
+body {
+  	font-family: Verdana, Helvetica, sans-serif;
+  	background: black;
+	font-size: 14px;
+}
+
+p, h1, h2, h3 {margin-bottom: 15px;}
+h1 { font-size: 214%; font-weight: bold; }
+h2 { font-size: 143%; font-weight: bold; }
+h3 { font-size: 143%; }
+
+h2 em { font-style: italic;}
+p.quiet { font-style: italic; color: #222;}
+em { font-weight: bold; }
+div.box { padding: 10px; background: #ccccff; margin-bottom: 15px;}
+
+#content { background: white; width: 530px; min-height: 600px; margin: 50px 10px 10px 410px; padding: 15px; padding-top: 10px;}
+#footer { margin-left: 410px; }
+#footer p {text-align: center; color: white; width: 560px; }
+#footer a  { color: #eeb30f;}
+#sidebar { background: black; float: left; width:400px;}
+#logo { margin-bottom: 10px;}
+
+
+#nav { font-size: 40px; text-align: right; font-weight: bold; list-style: none; }
+#nav a { color: white; text-decoration: none; padding: 0px 20px; display: block; position: absolute; outline: none; }
+#nav li { height: 67px; width: 360px; }
+#nav li a {display: block; width: 360px; height: 67px; overflow: hidden;}
+#nav a:hover { color: #0066FF; }
+
+
+
+#top { font-size: 85%; border-bottom: 1px dotted gray; text-align: right; margin-bottom: 10px;}
+#top p { margin-bottom: 10px;}
+
+#main { background: black;}
+.ribbon { background: #2971e0 url('../images/ribbon-corner.gif') bottom right no-repeat; color: black; font-weight: bold; margin-bottom: 15px; margin-right: -37px; padding-top: 5px; padding-bottom: 25px;}
+.ribbon a { color: white;}
+.ribbon p { margin: 0; padding: 5px; }
+
+table { border: 1px solid black; border-collapse: collapse;}
+th { font-weight: bold;}
+td, th { border: 1px dotted black; padding: 3px;}
+dl dd { padding-left: 20px; font-style: italic;}
+
+#projects li { margin-bottom: 15px;}
+#projects table, #projects th, #projects td { border: none;}
+#projects td, #projects th { border-bottom: 1px solid gray; }
+#projects th { font-weight: bold;}
+a.signup { padding: 5px; background: blue; color: white; display: inline-block; margin-top: 5px; text-decoration: none;}
+a.signup:hover { color: black;}
+
+#sponsors li { margin-bottom: 15px;}
+#sponsors table, #sponsors th, #sponsors td { border: none;}
+#sponsors td, #sponsors th { border-bottom: 1px solid gray; }
+#sponsors th { font-weight: bold;}

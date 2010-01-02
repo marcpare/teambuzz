@@ -1,0 +1,41 @@
+{% extends "adminbase.html" %}
+
+{% block content %}
+	<h1>Use the system below to assign accepted PCs to projects:</h1>
+	
+	<form action="pcprojects" method="post" id="pcprojform">
+	
+	<table>
+		<tr>
+			<th>email</th>
+			<th>first name</th>
+			<th>last name</th>
+			<th>assigned project</th>
+		</tr>
+		
+		{% for user in pcs %}
+			<tr>
+				<td>{{ user.email }}</td>
+				<td>{{ user.first_name }}</td>
+				<td>{{ user.last_name }}</td>
+				<td>
+					{% if user.project %}
+						{{ user.project.name }}
+					{% endif %}
+					<select name="{{ user.email }}" id="{{ user.email }}" class="selectOne">
+						<option value="none">Choose a Project</option>
+						{% for p in projects %}
+							<option value="{{ p.name }}">{{ p.name }}</option>
+						{% endfor %}
+					</select>
+				</td>
+			</tr>
+		{% endfor %}
+	</table><br /><br />
+	
+	<div class="submit">
+		<input type="submit" class="submit" value="Submit Changes &raquo;" />
+	</div>
+	
+	</form>
+{% endblock %}

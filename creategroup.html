@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block validation %}
+<script type="text/javascript">
+
+$().ready(function() {
+	// validate the form on keyup and submit
+	$("#phone").mask("(999) 999-9999");
+	
+	var validator = $("#groupform").validate({
+		rules: {
+			email: {
+				required: true,
+				email: true,
+				remote: "/verifyemail" 
+			},
+			password: {
+				required: true,
+				minlength: 5
+			},
+			first_name: "required",
+			last_name: "required",
+			group_name: "required",
+			slots: {
+				required: true,
+				digits: true,
+				max: 100
+			},
+			passcode: "required"
+		},
+		messages: {
+			email: {
+				required: "Please enter an email address",
+				email: "Please enter a valid email address",
+				remote: "Email is already in use"
+			},
+			password: {
+				required: "Please provide a password",
+				minlength: "Your password must be at least 5 characters long"
+			},
+			first_name: "Please enter your first name",
+			last_name: "Please enter your last name",
+			group_name: "Please enter a group name",
+			slots: {
+				required: "Please enter a number of slots",
+				digits: "Only entire people can be slotted for.",
+				max: "Less than 20, if you don't mind"
+			}
+		},
+		submitHandler: function(form) {
+			form.submit();
+		}
+	});
+		
+});
+
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+<h1>You look like you could be a group leader</h1>
+<p>Fill out the form below to save some spots for your friends in a project.</p>
+<h2>If you have registered as a PC, you cannot be a group leader!</h2>
+
+{% if message %}
+	<div>{{ message }}</div>
+{% endif %}
+
+<form action="/makeagroup" method="post" id="groupform">
+
+
+{% if not user %}
+<fieldset>
+	<legend>Your TEAM Buzz Account</legend>
+	
+	<div class="required">
+	<label for="email">GT Email Address</label>
+    <input type="text" name="email" id="email" class="inputText" size="10" maxlength="100" value="" />
+	</div>
+	
+	<div class="required">
+	<label for="password">Pick a Password</label>
+    <input type="password" name="password" id="password" class="inputText" size="10" maxlength="100" value="" />
+	</div>
+
+	<div class="required">
+	<label for="first_name">First Name</label>
+    <input type="text" name="first_name" id="first_name" class="inputText" size="10" maxlength="100" value="" />
+	</div>
+	
+	<div class="required">
+	<label for="last_name">Last Name</label>
+    <input type="text" name="last_name" id="last_name" class="inputText" size="10" maxlength="100" value="" />
+	</div>
+	
+	<div class="required">
+	<label for="phone">Phone Number</label>
+    <input type="text" name="phone" id="phone" class="inputText" size="10" maxlength="100" value="" />
+	<p class="last">ex. 123-456-9999</p>
+	</div>
+	
+	<div class="required">
+	<label for="greek">Greek Affiliation</label>
+	<select name="greek" id="greek" class="selectOne">
+	{% for g in greek %}
+		{% ifequal g.name "Not Affiliated" %}
+			<option value="{{ g.name }}" selected="selected">{{ g.name }}</option>
+		{% else %}
+			<option value="{{ g.name }}">{{ g.name }}</option>
+		{% endifequal %}
+		
+	{% endfor %}
+	</select>
+	</div>
+
+	
+</fieldset>
+{% endif %}
+
+<fieldset>
+	<legend>Your group</legend>
+	
+	<div class="required">
+	<label for="group_name">Name it</label>
+    <input type="text" name="group_name" id="group_name" class="inputText" size="10" maxlength="100" value="" />
+	</div>
+	
+	<div class="required">
+	<label for="project">Project</label>
+	<select name="project" id="project" class="selectOne">
+	{% for p in projects %}
+		<option value="{{ p.name }}">{{ p.name }} ({{ p.spots_taken }}/{{ p.max_volunteers}})</option>
+	{% endfor %}
+	</select>
+	</div>
+	
+	<div class="required">
+	<label for="slots">Spots to reserve</label>
+    <input type="text" name="slots" id="slots" class="inputText" size="10" maxlength="100" value="" />
+	<p class="last">No more than necessary, please.</p>
+	</div>
+	
+	<div class="required">
+	<label for="passcode">Passcode</label>
+    <input type="text" name="passcode" id="passcode" class="inputText" size="10" maxlength="100" value="" />
+	</div>      
+</fieldset>
+
+<fieldset>
+      <div class="submit">
+          <input type="submit" class="inputSubmit" value="Submit &raquo;" />
+      </div>
+</fieldset>
+
+	
+</form>
+
+
+{% endblock %}

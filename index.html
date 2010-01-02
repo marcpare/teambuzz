@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+	{% for phase in phases %}
+		{% ifequal phase "pc_apps" %}
+		<div class="ribbon">
+			<p>PC Applications are up! You should <a href="beapc">apply here.</a></p>
+		</div>		
+		{% endifequal %}
+		{% ifequal phase "group_create" %}
+		<div class="ribbon">
+			<p>You can create groups right now. Oh my. <a href="makeagroup">Click here.</a></p>
+		</div>
+		{% endifequal %}
+		{% ifequal phase "group_join" %}
+		<div class="ribbon">
+			<p>At last! You can join groups–<a href="joinagroup">click here.</a></p>
+		</div>
+		{% endifequal %}
+		{% ifequal phase "individual_registration" %}
+		<div class="ribbon">
+			<p>Time to join a project!!!–<a href="projects">click here.</a></p>
+		</div>
+		{% endifequal %}
+	{% endfor %}
+
+
+	<h1>Hi!</h1>
+	
+	<p>Hello, and welcome. TEAM Buzz is an organization devoted to making Atlanta better. Through our corporate sponsorship, we are able to organize and support many community-enhancing events every year. We participate in projects ranging from charity races through the city to converting an old parking garage into a homeless shelter.</p>
+	<p>The concept is simple; provide a service day that will act as a focal point and allow our campus to come together with a single plan and strategy to improve our community.</p>
+
+	<h2>Get Involved</h2>
+
+	<p>The success of the TEAM Buzz event depends on incredible volunteer support. There are a number of ways to be involved in the event. Project Coordinators help manage service projects and organize volunteers. Regular volunteers participate in one of the many available service projects on the day of the event. Finally, corporate sponsors provide the financial backing to get TEAM Buzz off the ground.
+</p>
+
+	<h2>TEAM Buzz is 10.10.09!!!</h2>
+
+	<h2>Project Coordinator</h2>
+
+	<p>Project Coordinators (PCs) help organize groups of volunteers for specific projects during TEAM Buzz. The role is more demanding than that of a regular volunteer, but it's an opportunity to play an integral role in the success of a service event.</p>
+
+	<p>Registration begins August 31th and ends September 14th.</p>
+
+	<h2>Group Volunteers</h2>
+
+	<p>Want to volunteer at the same site as your fraternity, sorority, or organization? Choose a spokesperson and signup today! Note that group signups will begin before individuals will be granted signup access!</p>
+
+	<p>Registration begins September 14th and ends September 28th.</p>
+	
+	<!--<p><a href="makeagroup">Be a Group Leader!</a></p>-->
+	<!--<p><a href="joinagroup">Join your Group!</a></p>-->
+
+	<h2>Regular Volunteer</h2>
+
+	<p>Being a regular volunteer is the easiest way to participate in TEAM Buzz. Simply join a project and show up the morning of TEAM Buzz. Make sure to signup early because every project has a limited number of spots!</p>
+
+	<p>Registration begins September 28th and ends October 10th.</p>
+	
+	<!--<p><a href="projects">Select a Project and join NOW!!!</a></p>-->
+	
+{% endblock %}	

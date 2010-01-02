@@ -1,0 +1,28 @@
+{% extends "adminbase.html" %}
+
+{% block content %}
+	<h1>Here are all the users</h1>
+	
+	<table>
+		<tr>
+			<th>email</th>
+			<th>first name</th>
+			<th>last name</th>
+			<th>is pending</th>
+		</tr>
+		
+		{% for user in users %}
+			<tr>
+				<td>{{ user.email }}</td>
+				<td>{{ user.first_name }}</td>
+				<td>{{ user.last_name }}</td>
+				<td>
+					{{ user.pending }}
+					{% if user.pending %}
+						<a href="{{ user.generateConfirmLink }}">activate</a>
+					{% endif %}
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "adminbase.html" %}
+
+{% block content %}
+	<h1>View Project:</h1>
+	
+	<form action="usersbygroup" method="post" id="projselform">
+		<select name="projsel" id="projsel" class="selectOne">
+			<option value="none">Choose a Project</option>
+			{% for p in projects %}
+				<option value="{{ p.name }}">{{ p.name }}</option>
+			{% endfor %}
+		</select>
+		<div class="submit">
+			<input type="submit" class="submit" value="View Project &raquo;" />
+		</div>
+	</form>
+	<hr />
+	{% if project %}
+		<br />
+		<h2>{{ project.name }}</h2>
+		<h2>Project Coordinators:</h2>
+		<table>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Phone No.</th>
+				<th>Greek Aff.</th>
+			</tr>
+			{% for user in pcs %}
+				<tr>
+					<td>{{ user.first_name }}</td>
+					<td>{{ user.last_name }}</td>
+					<td>{{ user.email }}</td>
+					<td>{{ user.phone }}</td>
+					<td>{{ user.greek_aff.name }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+		<h2>Volunteers</h2>
+		<table>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Phone No.</th>
+				<th>Greek Aff.</th>
+			</tr>
+			{% for user in users %}
+				<tr>
+					<td>{{ user.first_name }}</td>
+					<td>{{ user.last_name }}</td>
+					<td>{{ user.email }}</td>
+					<td>{{ user.phone }}</td>
+					<td>{{ user.greek_aff.name }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+		<h3>{{ count }} Volunteers for this project</h3>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,166 @@
+body {
+  font: normal 16px arial,sans-serif;
+  background-color: #CC9933;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+}
+
+h1 {
+	font: bold 24px arial,sans-serif;
+	text-decoration: underline;
+}
+
+h2 {
+	font: bold 20px arial,sans-serif;
+}
+
+h3 {
+	font: bold 16px arial,sans-serif;
+}
+
+h4 {
+	font: bold 14px arial,sans-serif;
+	color: gray;
+}
+
+h5 {
+	font: bold 14px arial,sans-serif;
+}
+
+p {
+}
+
+.quiet {
+	font: bold 14px arial,sans-serif;
+}
+
+.footer {
+	text-align: center;
+	font: bold 12px arial,sans-serif;
+}
+
+.header {
+	background-color: black;
+	text-align: center;
+	width:1250px;
+	position: relative;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px;
+}
+
+.contentcontainer {
+	background-color: black;
+	text-align: center;
+	width:1250px;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px;
+}
+
+.content {
+	background-color: #2E2C26;
+	text-align: left;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px;
+}
+
+.mainnav {
+	display: inline;
+	vertical-align: top;
+	border:0px solid black;
+	padding: 0px;
+	margin: 0px;
+	font-size: 20px;
+}
+
+a {
+	text-decoration: none;
+	color: #CC9933;
+}
+
+a:hover {
+	color: gray;
+}
+
+td {
+	padding: 0px;
+	margin: 0px;
+	height: 35px;
+	width: 145px;
+}
+
+.contact {
+	vertical-align: top;
+}
+
+.contacttd {
+	padding: 10px;
+	margin: 10px;
+	width: 225px;
+}
+
+.contacthead {
+	text-decoration: underline;
+}
+
+tr {
+	padding: 0px;
+	margin: 0px;
+}
+
+#nav1 {
+	background-image: url('../images/home_button_up.jpg');
+}
+
+#nav1:hover {
+	background-image: url('../images/home_button_down.jpg');
+}
+
+#nav2 {
+	background-image: url('../images/about_button_up.jpg');
+}
+
+#nav2:hover {
+	background-image: url('../images/about_button_down.jpg');
+}
+
+#nav3 {
+	background-image: url('../images/projects_button_up.jpg');
+}
+
+#nav3:hover {
+	background-image: url('../images/projects_button_down.jpg');
+}
+
+#nav4 {
+	background-image: url('../images/register_button_up.jpg');
+}
+
+#nav4:hover {
+	background-image: url('../images/register_button_down.jpg');
+}
+
+#nav5 {
+	background-image: url('../images/sponsors_button_up.jpg');
+}
+
+#nav5:hover {
+	background-image: url('../images/sponsors_button_down.jpg');
+}
+
+#nav6 {
+	background-image: url('../images/contact_button_up.jpg');
+}
+
+#nav6:hover {
+	background-image: url('../images/contact_button_down.jpg');
+}

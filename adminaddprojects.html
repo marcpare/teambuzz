@@ -1,0 +1,70 @@
+{% extends "adminbase.html" %}
+
+{% block validation %}
+<script type="text/javascript">
+
+$().ready(function() {
+		submitHandler: function(form) {
+			form.submit();
+		}
+});
+
+</script>
+
+{% endblock %}
+
+{% block content %}
+	<h1>Fill the form out to add a project!</h1>
+	
+	<h2>{{ message }}</h2>
+	
+	<form action="/admin/addprojects" method="post" id="projform">
+
+<fieldset>
+	<legend>Project Information</legend>
+	
+	<div class="required">
+	<label for="project_name">Project Name</label>
+    <input type="text" name="project_name" id="project_name" class="inputText" size="30" maxlength="100" value="" />
+	</div>
+	
+	<div class="required">
+	<label for="max_vols">Maximum Number of Volunteers</label>
+    <input type="text" name="max_vols" id="max_vols" class="inputText" size="5" maxlength="100" value="" />
+	</div>
+
+	<div class="required">
+	<label for="location">Location</label>
+    <input type="text" name="location" id="location" class="inputText" size="80" maxlength="100" value="" />
+	</div>
+
+	<div class="required">
+	<label for="work_type">Type of Work: </label>
+	<select name="work_type" id="work_type" class="selectOne">
+		<option value="Indoor">Indoor</option>
+		<option value="Outdoor">Outdoor</option>
+		<option value="Children">Children</option>
+		<option value="Fun" selected="selected">Fun</option>
+	</select>
+	</div>
+	
+</fieldset>
+
+<fieldset>
+	<legend>Project Description</legend>
+	<div class="required">
+      <textarea name="description" id="description" class="inputTextarea" rows="10" cols="50"></textarea>
+	  <p class="message"></p>
+    </div>
+	     
+</fieldset>
+
+<fieldset>
+      <div class="submit">
+          <input type="submit" class="submit" value="Submit &raquo;" />
+      </div>
+</fieldset>
+
+</form>
+
+{% endblock %}

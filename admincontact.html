@@ -1,0 +1,55 @@
+{% extends "adminbase.html" %}
+
+{% block content %}
+	<h1>Here is the contact information by group:</h1>
+	
+	<h3>All PCs:</h3>
+	<p>
+		<a href="mailto:
+		{% for user in users %}
+			{% if user.is_pc %}
+				{{ user.email }}, 
+			{% endif %}
+		{% endfor %}
+		">Send Email</a>
+	</p>
+	<p>
+		{% for user in users %}
+			{% if user.is_pc %}
+				{{ user.email }}, 
+			{% endif %}
+		{% endfor %}
+	</p>
+	
+	<h3>All Group Leaders:</h3>
+	<p>
+		<a href="mailto:
+		{% for user in users %}
+			{% if user.is_group_leader %}
+				{{ user.email }}, 
+			{% endif %}
+		{% endfor %}
+		">Send Email</a>
+	</p>
+	<p>
+		{% for user in users %}
+			{% if user.is_group_leader %}
+				{{ user.email }}, 
+			{% endif %}
+		{% endfor %}
+	</p>
+	
+	<h3>All Users:</h3>
+	<p>
+		<a href="mailto:
+		{% for user in users %}
+				{{ user.email }}, 
+		{% endfor %}
+		">Send Email</a>
+	</p>
+	<p>
+		{% for user in users %}
+			{{ user.email }}, 
+		{% endfor %}
+	</p>
+{% endblock %}
